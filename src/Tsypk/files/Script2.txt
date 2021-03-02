@@ -1,0 +1,3 @@
+show
+execute_script
+/Users/tsypk/IdeaProjects/Laba5/src/Tsypk/files/Script3.txt
