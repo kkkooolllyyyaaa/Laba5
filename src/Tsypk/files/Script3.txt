@@ -1,4 +1,4 @@
 info
 help
 execute_script
-            /Users/tsypk/IdeaProjects/Laba5/src/Tsypk/files/Script.txt
+/Users/tsypk/IdeaProjects/Laba5/src/Tsypk/files/Script.txt

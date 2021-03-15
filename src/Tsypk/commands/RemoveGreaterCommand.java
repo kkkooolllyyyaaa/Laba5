@@ -1,20 +1,20 @@
 package Tsypk.commands;
 
 import Tsypk.collection.CollectionManager;
-import Tsypk.collection.StudyGroup;
-import Tsypk.collection.StudyGroupAsker;
+import Tsypk.collection.StudyGroupCreater;
 
 public class RemoveGreaterCommand extends AbstractCommand {
-    private CollectionManager collectionManager;
-    private StudyGroupAsker studyGroupAsker;
-    public RemoveGreaterCommand(CollectionManager collectionManager, StudyGroupAsker studyGroupAsker) {
+    private final CollectionManager collectionManager;
+    private final StudyGroupCreater studyGroupCreater;
+
+    public RemoveGreaterCommand(CollectionManager collectionManager, StudyGroupCreater studyGroupCreater) {
         super("remove_greater", " : {element} удалить из коллекции все элементы, превышающие заданный");
         this.collectionManager = collectionManager;
-        this.studyGroupAsker=studyGroupAsker;
+        this.studyGroupCreater = studyGroupCreater;
     }
 
     @Override
     public void execute(String[] args) {
-        collectionManager.removeGreater(studyGroupAsker.askStudyGroup());
+        collectionManager.removeGreater(studyGroupCreater.askStudyGroup());
     }
 }

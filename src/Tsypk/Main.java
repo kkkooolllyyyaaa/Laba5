@@ -7,6 +7,6 @@ public class Main {
     public static void main(String[] args) {
         CommandReader commandReader = new CommandReader();
         Client client = new Client(commandReader);
-        client.interactiveMod();
+        client.interactiveMode();
     }
 }

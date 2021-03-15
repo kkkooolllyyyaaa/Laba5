@@ -11,49 +11,33 @@ public class Person {
         this.location = location;
     }
 
-    public Person() {};
-
-    public boolean setName(String name) {
-        if(name==null)
-            return false;
-        else if(name.length()>0) {
-            this.name = name;
-            return true;
-        }
-        else
-            return false;
+    public Person() {
     }
 
-    public boolean setPassportID(String passportID) {
-        if(passportID==null)
-            return false;
-        else if (passportID.length() > 0) {
-            this.passportID = passportID;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean setLocation(Location location) {
-        if(location==null)
-            return false;
-        else {
-            this.location = location;
-            return true;
-        }
-    }
+    ;
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassportID() {
         return passportID;
     }
 
+    public void setPassportID(String passportID) {
+        this.passportID = passportID;
+    }
+
     public Location getLocation() {
         return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override

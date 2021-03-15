@@ -1,16 +1,16 @@
 package Tsypk.client;
 
-import Tsypk.commands.CommandReader;
+import Tsypk.commands.CommandReaderInterface;
 
 public class Client {
-    private CommandReader commandReader;
+    private final CommandReaderInterface commandReader;
 
-    public Client(CommandReader commandReader) {
+    public Client(CommandReaderInterface commandReader) {
         this.commandReader = commandReader;
     }
 
-    public void interactiveMod(){
+    public void interactiveMode() {
         commandReader.start();
-        while(commandReader.readCommand());
+        while (commandReader.readCommand()) ;
     }
 }

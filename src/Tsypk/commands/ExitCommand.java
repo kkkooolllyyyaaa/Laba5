@@ -2,17 +2,15 @@ package Tsypk.commands;
 
 import Tsypk.collection.CollectionManager;
 
-public class ExitCommand extends AbstractCommand{
-    private CollectionManager collectionManager;
+public class ExitCommand extends AbstractCommand {
 
     public ExitCommand(CollectionManager collectionManager) {
-        super("exit"," : завершить программу (без сохранения в файл)");
-        this.collectionManager = collectionManager;
+        super("exit", " : завершить программу (без сохранения в файл)");
     }
 
     @Override
     public void execute(String[] args) {
-        collectionManager.exit();
+        CommandReader.quit();
     }
 
 }

@@ -1,7 +1,7 @@
-package Tsypk.collection;
+package Tsypk.utils;
 
-public class InputChecker {
-    public static boolean checkInt(String string) {
+public interface InputChecker {
+    static boolean checkInt(String string) {
         try {
             Integer.parseInt(string);
         } catch (Exception e) {
@@ -10,7 +10,7 @@ public class InputChecker {
         return true;
     }
 
-    public static boolean checkLong(String string) {
+    static boolean checkLong(String string) {
         try {
             Long.parseLong(string);
         } catch (Exception e) {

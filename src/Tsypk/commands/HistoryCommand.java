@@ -1,24 +1,19 @@
 package Tsypk.commands;
 
-import Tsypk.collection.CollectionManager;
 import Tsypk.utils.LimitedQueue;
 
-public class HistoryCommand extends AbstractCommand{
-    private CollectionManager collectionManager;
-    private LimitedQueue limitedQueue;
+public class HistoryCommand extends AbstractCommand {
 
-    public HistoryCommand(CollectionManager collectionManager) {
-        super("history"," : вывести последние 5 команд (без их аргументов)");
-        this.collectionManager = collectionManager;
+    public HistoryCommand() {
+        super("history", " : вывести последние 5 команд (без их аргументов)");
     }
 
     @Override
     public void execute(String[] args) {
-        setLimitedQueue(CommandReader.getHistory());
-        collectionManager.history(limitedQueue);
-    }
-
-    public void setLimitedQueue(LimitedQueue limitedQueue) {
-        this.limitedQueue = limitedQueue;
+        LimitedQueue<String> history = CommandReaderInterface.getHistory();
+        System.out.println("The list of last 5 commands:");
+        for (Object hstr : history) {
+            System.out.println(((String) hstr).trim());
+        }
     }
 }

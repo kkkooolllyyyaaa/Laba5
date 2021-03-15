@@ -9,36 +9,23 @@ public class Coordinates {
         this.y = y;
     }
 
-    public Coordinates(){}
-
-    public boolean setX(int x){
-        if(x>-393) {
-            this.x = x;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    public boolean setY(Long y){
-        if(y==null)
-            return false;
-        else if(y>-741) {
-            this.y = y;
-            return true;
-        }
-        else {
-            return false;
-        }
+    public Coordinates() {
     }
 
     public int getX() {
         return x;
     }
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
     public Long getY() {
         return y;
+    }
+
+    public void setY(Long y) {
+        this.y = y;
     }
 
     @Override

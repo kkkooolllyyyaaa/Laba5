@@ -1,17 +1,19 @@
 package Tsypk.commands;
 
-import Tsypk.collection.CollectionManager;
+import java.util.HashMap;
 
 public class HelpCommand extends AbstractCommand {
-    private CollectionManager collectionManager;
+    private final HashMap<String, AbstractCommand> commandMap;
 
-    public HelpCommand(CollectionManager collectionManager) {
-        super("help"," : вывести справку по доступным командам");
-        this.collectionManager = collectionManager;
+    public HelpCommand(HashMap<String, AbstractCommand> commandMap) {
+        super("help", " : вывести справку по доступным командам");
+        this.commandMap = commandMap;
     }
 
     @Override
     public void execute(String[] args) {
-        collectionManager.help();
+        for (String it : commandMap.keySet()) {
+            System.out.println(commandMap.get(it).getName() + commandMap.get(it).getDescription());
+        }
     }
 }

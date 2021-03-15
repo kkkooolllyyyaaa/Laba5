@@ -2,11 +2,11 @@ package Tsypk.commands;
 
 import Tsypk.collection.CollectionManager;
 
-public class InfoCommand extends AbstractCommand{
-    private CollectionManager collectionManager;
+public class InfoCommand extends AbstractCommand {
+    private final CollectionManager collectionManager;
 
     public InfoCommand(CollectionManager collectionManager) {
-        super("info"," : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
+        super("info", " : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
         this.collectionManager = collectionManager;
     }
 

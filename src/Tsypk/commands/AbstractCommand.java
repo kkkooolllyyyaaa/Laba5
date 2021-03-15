@@ -6,7 +6,7 @@ import java.util.Objects;
  * Класс - абстракция каждой из команд
  * Реализация шаблона Abstract Class + Interface
  */
-public abstract class AbstractCommand implements Command{
+public abstract class AbstractCommand implements Command {
     private final String name;
     private final String description;
 

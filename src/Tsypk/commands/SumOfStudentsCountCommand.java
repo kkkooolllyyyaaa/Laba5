@@ -2,11 +2,11 @@ package Tsypk.commands;
 
 import Tsypk.collection.CollectionManager;
 
-public class SumOfStudentsCountCommand extends AbstractCommand{
-    private CollectionManager collectionManager;
+public class SumOfStudentsCountCommand extends AbstractCommand {
+    private final CollectionManager collectionManager;
 
     public SumOfStudentsCountCommand(CollectionManager collectionManager) {
-        super("sum_of_students_count"," : вывести сумму значений поля studentsCount для всех элементов коллекции");
+        super("sum_of_students_count", " : вывести сумму значений поля studentsCount для всех элементов коллекции");
         this.collectionManager = collectionManager;
     }
 

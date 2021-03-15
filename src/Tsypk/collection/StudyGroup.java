@@ -1,11 +1,9 @@
 package Tsypk.collection;
 
-import Tsypk.collection.*;
-
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-public class StudyGroup implements Comparable<StudyGroup>{
+public class StudyGroup implements Comparable<StudyGroup> {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -20,92 +18,40 @@ public class StudyGroup implements Comparable<StudyGroup>{
                       int studentsCount,
                       FormOfEducation formOfEducation,
                       Semester semesterEnum,
-                      Person groupAdmin) {
+                      Person groupAdmin,
+                      long id) {
         this.name = name;
         this.coordinates = coordinates;
         this.studentsCount = studentsCount;
         this.formOfEducation = formOfEducation;
         this.semesterEnum = semesterEnum;
         this.groupAdmin = groupAdmin;
-
-        this.creationDate=ZonedDateTime.now();
-        this.id= CollectionManager.generateId();
-    }
-    public StudyGroup(){
-        this.creationDate=ZonedDateTime.now();
-        this.id= CollectionManager.generateId();
-    };
-
-    public boolean  setName(String name) {
-        if(name==null){
-            return false;
-        }
-        else if(name.length()==0){
-            return false;
-        }
-        else {
-            this.name = name;
-            return true;
-        }
-    }
-
-    public boolean setCoordinates(Coordinates coordinates) {
-        if(coordinates==null)
-            return false;
-        else {
-            this.coordinates = coordinates;
-            return true;
-        }
-    }
-
-    public boolean setStudentsCount(int studentsCount) {
-        if(studentsCount>0) {
-            this.studentsCount = studentsCount;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    public boolean setFormOfEducation(FormOfEducation formOfEducation) {
-        if(formOfEducation==null)
-            return false;
-        else
-            this.formOfEducation = formOfEducation;
-        return true;
-    }
-
-    public boolean setSemesterEnum(Semester semesterEnum) {
-        if(semesterEnum==null)
-            return false;
-        else {
-            this.semesterEnum = semesterEnum;
-            return true;
-        }
-    }
-
-    public void setGroupAdmin(Person groupAdmin) {
-        if(groupAdmin==null)
-            throw new NullPointerException();
-        else
-            this.groupAdmin = groupAdmin;
-    }
-
-    public void setId(long id) {
         this.id = id;
+        this.creationDate = ZonedDateTime.now();
     }
 
     public long getId() {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Coordinates getCoordinates() {
         return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
     public ZonedDateTime getCreationDate() {
@@ -116,16 +62,32 @@ public class StudyGroup implements Comparable<StudyGroup>{
         return studentsCount;
     }
 
+    public void setStudentsCount(int studentsCount) {
+        this.studentsCount = studentsCount;
+    }
+
     public FormOfEducation getFormOfEducation() {
         return formOfEducation;
+    }
+
+    public void setFormOfEducation(FormOfEducation formOfEducation) {
+        this.formOfEducation = formOfEducation;
     }
 
     public Semester getSemesterEnum() {
         return semesterEnum;
     }
 
+    public void setSemesterEnum(Semester semesterEnum) {
+        this.semesterEnum = semesterEnum;
+    }
+
     public Person getGroupAdmin() {
         return groupAdmin;
+    }
+
+    public void setGroupAdmin(Person groupAdmin) {
+        this.groupAdmin = groupAdmin;
     }
 
     @Override
@@ -134,7 +96,7 @@ public class StudyGroup implements Comparable<StudyGroup>{
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", coordinates=" + coordinates.toString() +
-                ", creationDate=" + creationDate.getHour()+':'+creationDate.getMinute()+':'+creationDate.getSecond()+' '+creationDate.getDayOfMonth()+' '+creationDate.getMonth()+' '+creationDate.getYear() +
+                ", creationDate=" + creationDate.getHour() + ':' + creationDate.getMinute() + ':' + creationDate.getSecond() + ' ' + creationDate.getDayOfMonth() + ' ' + creationDate.getMonth() + ' ' + creationDate.getYear() +
                 ", studentsCount=" + studentsCount +
                 ", formOfEducation=" + formOfEducation +
                 ", semesterEnum=" + semesterEnum +
@@ -144,7 +106,7 @@ public class StudyGroup implements Comparable<StudyGroup>{
 
     @Override
     public int compareTo(StudyGroup o) {
-        return (int)(getId()-o.getId());
+        return (int) (getId() - o.getId());
     }
 
     @Override

@@ -1,21 +1,20 @@
 package Tsypk.commands;
 
 import Tsypk.collection.CollectionManager;
-import Tsypk.collection.StudyGroup;
-import Tsypk.collection.StudyGroupAsker;
+import Tsypk.collection.StudyGroupCreater;
 
-public class AddCommand extends AbstractCommand{
+public class AddCommand extends AbstractCommand {
     private final CollectionManager collectionManager;
-    private final StudyGroupAsker studyGroupAsker;
+    private final StudyGroupCreater studyGroupCreater;
 
-    public AddCommand(CollectionManager collectionManager, StudyGroupAsker studyGroupAsker) {
-        super("add"," {element} : добавить новый элемент в коллекцию");
+    public AddCommand(CollectionManager collectionManager, StudyGroupCreater studyGroupCreater) {
+        super("add", " {element} : добавить новый элемент в коллекцию");
         this.collectionManager = collectionManager;
-        this.studyGroupAsker=studyGroupAsker;
+        this.studyGroupCreater = studyGroupCreater;
     }
 
     @Override
     public void execute(String[] args) {
-        collectionManager.addElement(studyGroupAsker.askStudyGroup());
+        collectionManager.addElement(studyGroupCreater.askStudyGroup());
     }
 }
