@@ -15,10 +15,10 @@ import java.util.Scanner;
  * Класс, обеспечивающий считывание из текствого фалйа, для выполнения скрипта (последовательности команд)
  */
 public class ScriptReader {
-    private HashMap<String, AbstractCommand> commandMap;
+    private static final List<String> scriptPaths = new ArrayList<>();
     private static String filePath;
     private static BufferedReader bufferedReader;
-    private static final List<String> scriptPaths = new ArrayList<>();
+    private HashMap<String, AbstractCommand> commandMap;
 
     public ScriptReader(CollectionManager collectionManager) {
         commandMap = new HashMap();

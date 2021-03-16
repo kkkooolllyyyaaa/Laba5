@@ -1,7 +1,5 @@
 package Tsypk.collection;
 
-import Tsypk.utils.ScriptReader;
-
 import java.util.*;
 
 /**
@@ -34,7 +32,7 @@ public class CollectionManager {
         for (StudyGroup it : studyGroups) {
             sum += it.getStudentsCount();
         }
-        print("Sum of students count is: "+ sum, true);
+        print("Sum of students count is: " + sum, true);
         return sum;
     }
 

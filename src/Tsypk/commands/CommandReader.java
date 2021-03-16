@@ -15,11 +15,11 @@ import java.util.Scanner;
  * Класс, отвечающий за общение Client и CollectionManager
  * Является пунктом упрравления для всех команд
  */
-public class CommandReader implements CommandReaderInterface{
+public class CommandReader implements CommandReaderInterface {
+    private static boolean isExit = false;
     private final CollectionManager manager;
     private final FileWorker csvFileWorker;
     private final HashMap<String, AbstractCommand> commandMap;
-    private static boolean isExit = false;
 
     public CommandReader() {
         manager = new CollectionManager();

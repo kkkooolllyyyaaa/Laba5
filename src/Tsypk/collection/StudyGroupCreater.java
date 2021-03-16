@@ -13,9 +13,9 @@ import java.time.ZonedDateTime;
  * Обеспечивает валидность вводимых полей
  */
 public class StudyGroupCreater implements StudyGroupCreaterInterface {
-    private BufferedReader reader;
     private final CollectionManager manager;
     private final boolean isScript;
+    private BufferedReader reader;
     private String line;
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -388,6 +388,7 @@ public class StudyGroupCreater implements StudyGroupCreaterInterface {
 
     /**
      * Setter
+     *
      * @param reader
      */
     public void setReader(BufferedReader reader) {

@@ -19,7 +19,7 @@ public class ExecuteScriptCommand extends AbstractCommand {
             ScriptReader scriptReader = new ScriptReader(collectionManager);
             scriptReader.readCommand();
             ScriptReader.clearPaths();
-        } catch (ScriptException e){
+        } catch (ScriptException e) {
             System.err.println("You have recursion! Fix the script file ");
         }
     }

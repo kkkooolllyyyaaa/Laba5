@@ -11,10 +11,10 @@ import java.util.Scanner;
  * Основной класс для работы с csv файлом
  */
 public class CSVFileWorker implements CSVFileWorkerInterface, FileWorker {
+    private final CollectionManager manager;
     private String filePath;
     private String separator;
     private BufferedReader bufferedReader;
-    private final CollectionManager manager;
 
     public CSVFileWorker(CollectionManager collectionManager) {
         manager = collectionManager;
@@ -26,18 +26,24 @@ public class CSVFileWorker implements CSVFileWorkerInterface, FileWorker {
     @Override
     public void inputFilePath() {
         print("Enter the path to file:");
-        Scanner scanFilePath = new Scanner(System.in);
-        filePath = scanFilePath.nextLine().trim();
+        Scanner scan = new Scanner(System.in);
+        filePath = scan.nextLine().trim();
         File file = new File(filePath);
-        while (!file.exists() || file.isDirectory()) {
-            print("File path is incorrect, please, try again:");
-            filePath = scanFilePath.nextLine();
+        while (!file.exists() || file.isDirectory() || !file.canRead()) {
+            if (!file.exists())
+                print("File isn't exist, please try again:");
+            else if (!file.canRead())
+                print("Permission denied! File can't be read, please try again:");
+            else
+                print("This is the Directory! Please try again:");
+            filePath = scan.nextLine();
             file = new File(filePath.trim());
         }
         try {
             bufferedReader = new BufferedReader(new FileReader(filePath));
         } catch (FileNotFoundException e) {
             print("File path is incorrect, please try again");
+            return;
         }
         print("The path to the file is successfully entered");
     }
@@ -165,14 +171,20 @@ public class CSVFileWorker implements CSVFileWorkerInterface, FileWorker {
     public void write(String[] str) {
         try {
             String saveFilePath = System.getenv("testTTT");
+            File file;
             if (saveFilePath == null) {
                 print("The path in the environment variable is incorrect");
                 inputFilePath();
                 saveFilePath = getFilePath();
+                while (!(file = new File(saveFilePath)).canWrite()) {
+                    print("Permission denied! Unable to write to this file, please try again:");
+                    inputFilePath();
+                    saveFilePath = getFilePath();
+                }
             }
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(saveFilePath));
-            for (int i = 0; i < str.length; i++) {
-                bufferedWriter.write(str[i]);
+            for (String s : str) {
+                bufferedWriter.write(s);
                 bufferedWriter.newLine();
             }
             bufferedWriter.flush();
