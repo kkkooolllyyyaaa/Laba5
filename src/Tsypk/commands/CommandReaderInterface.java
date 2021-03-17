@@ -1,6 +1,9 @@
 package Tsypk.commands;
 
+import Tsypk.collection.CollectionManager;
 import Tsypk.utils.LimitedQueue;
+
+import java.util.HashMap;
 
 public interface CommandReaderInterface {
     LimitedQueue<String> history = new LimitedQueue(5);
@@ -15,6 +18,12 @@ public interface CommandReaderInterface {
 
     void start();
 
-    boolean readCommand();
+    void readCommand();
+
+    void addCommand(String commandName, AbstractCommand command);
+
+    CollectionManager getManager();
+
+    HashMap<String, AbstractCommand> getCommandMap();
 
 }

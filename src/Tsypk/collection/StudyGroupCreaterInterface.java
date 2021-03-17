@@ -34,4 +34,32 @@ public interface StudyGroupCreaterInterface {
     Enum checkStudyGroupEnum(String str) throws InvalidFieldException;
 
     Long askStudyGroupId();
+
+    void inputFieldsFile();
+
+    void askName();
+
+    void askCoordinateX();
+
+    void askCoordinateY();
+
+    void askStudentsCount();
+
+    void askFormOfEducation();
+
+    void askSemester();
+
+    void askGAName();
+
+    void askGAPassportID();
+
+    void askGALocationX();
+
+    void askGALocationY();
+
+    void askGALocationZ();
+
+    void askGALocationName();
+
+    StudyGroup askStudyGroup();
 }

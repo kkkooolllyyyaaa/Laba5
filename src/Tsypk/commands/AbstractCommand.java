@@ -6,7 +6,7 @@ import java.util.Objects;
  * Класс - абстракция каждой из команд
  * Реализация шаблона Abstract Class + Interface
  */
-public abstract class AbstractCommand implements Command {
+public abstract class AbstractCommand {
     private final String name;
     private final String description;
 
@@ -18,7 +18,6 @@ public abstract class AbstractCommand implements Command {
     /**
      * @return Имя команды
      */
-    @Override
     public String getName() {
         return name;
     }
@@ -26,7 +25,6 @@ public abstract class AbstractCommand implements Command {
     /**
      * @return Описание команды
      */
-    @Override
     public String getDescription() {
         return description;
     }
@@ -43,4 +41,6 @@ public abstract class AbstractCommand implements Command {
     public int hashCode() {
         return Objects.hash(name, description);
     }
+
+    public abstract void execute(String[] args);
 }

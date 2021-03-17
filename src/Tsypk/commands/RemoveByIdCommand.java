@@ -2,13 +2,14 @@ package Tsypk.commands;
 
 import Tsypk.collection.CollectionManager;
 import Tsypk.collection.StudyGroupCreater;
+import Tsypk.collection.StudyGroupCreaterInterface;
 import Tsypk.utils.InputChecker;
 
 public class RemoveByIdCommand extends AbstractCommand {
     private final CollectionManager collectionManager;
-    private final StudyGroupCreater studyGroupCreater;
+    private final StudyGroupCreaterInterface studyGroupCreater;
 
-    public RemoveByIdCommand(CollectionManager collectionManager, StudyGroupCreater studyGroupCreater) {
+    public RemoveByIdCommand(CollectionManager collectionManager, StudyGroupCreaterInterface studyGroupCreater) {
         super("remove_by_id", " : удалить элемент коллекции по его id");
         this.collectionManager = collectionManager;
         this.studyGroupCreater = studyGroupCreater;

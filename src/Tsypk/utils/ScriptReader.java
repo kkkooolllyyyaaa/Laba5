@@ -33,7 +33,7 @@ public class ScriptReader {
         commandMap.put("clear", new ClearCommand(collectionManager));
         commandMap.put("count_less_than_semester_semester_enum", new CountLessThanSemesterEnumCommand(collectionManager, studyGroupCreater));
         commandMap.put("execute_script", new ExecuteScriptFileCommand(collectionManager));
-        commandMap.put("exit", new ExitCommand(collectionManager));
+        commandMap.put("exit", new ExitCommand());
         commandMap.put("history", new HistoryCommand());
         commandMap.put("info", new InfoCommand(collectionManager));
         commandMap.put("print_ascending", new PrintAscendingCommand(collectionManager));
